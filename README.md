@@ -21,4 +21,6 @@ See more details [here](http://json-schema.org/).
 
     composer require estahn/phpunit-json-assertions
 
+## Usage
+
 ## Demo
