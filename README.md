@@ -11,8 +11,8 @@ JSON assertions for PHPUnit includes traits/methods to help validate your JSON d
 * describes your existing data format
 * clear, human- and machine-readable documentation
 * complete structural validation, useful for
-** automated testing
-** validating client-submitted data
+  * automated testing
+  * validating client-submitted data
 
 See more details [here](http://json-schema.org/).
 
