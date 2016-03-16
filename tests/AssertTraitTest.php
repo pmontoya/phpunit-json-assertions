@@ -57,7 +57,7 @@ class AssertTraitTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Tests if referenced schemas are loaded automatically
+     * Tests if referenced schemas are loaded automatically.
      */
     public function testAssertJsonSchemaWithRefs()
     {
