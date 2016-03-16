@@ -29,7 +29,7 @@ trait Assert
      *
      * Example:
      *
-     *   static::assertJsonMatchesSchema(json_decode('{"foo":1}'), './schema.json')
+     *   static::assertJsonMatchesSchema('./schema.json', json_decode('{"foo":1}'))
      *
      * @param string       $schema  Path to the schema file
      * @param array|object $content JSON array or object
@@ -53,7 +53,7 @@ trait Assert
         }, $validator->getErrors());
         $messages[] = '- Response: '.json_encode($content);
 
-        self::assertTrue($validator->isValid(), implode("\n", $messages));
+        \PHPUnit_Framework_Assert::assertTrue($validator->isValid(), implode("\n", $messages));
     }
 
     /**
@@ -86,8 +86,8 @@ trait Assert
     {
         $result = \JmesPath\Env::search($expression, $json);
 
-        self::assertEquals($expected, $result);
-        self::assertInternalType(gettype($expected), $result);
+        \PHPUnit_Framework_Assert::assertEquals($expected, $result);
+        \PHPUnit_Framework_Assert::assertInternalType(gettype($expected), $result);
     }
 
     /**

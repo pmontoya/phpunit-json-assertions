@@ -76,7 +76,7 @@ class MyTestCase extends \PHPUnit_Framework_TestCase
     
         $json = json_decode('{"foo":1}');
         
-        $this->assertJsonMatchesSchemaString('./my-schema.json', $json);
+        $this->assertJsonMatchesSchema('./my-schema.json', $json);
         $this->assertJsonValueEquals(1, '* | [0]', $json);
     }
 }
@@ -112,10 +112,39 @@ class MyTestCase extends \PHPUnit_Framework_TestCase
     
         $json = json_decode('{"foo":1}');
         
-        JsonAssert::assertJsonMatchesSchemaString('./my-schema.json', $json);
+        JsonAssert::assertJsonMatchesSchema('./my-schema.json', $json);
         JsonAssert::assertJsonValueEquals(1, '* | [0]', $json);
     }
 }
+```
+
+## Extensions
+
+`phpunit-json-assertions` provides extensions for simpler handling in different use cases.
+
+### Symfony HttpFoundation Component
+
+The extension `EnricoStahn\JsonAssert\Extension\Symfony` allows to pass in the actual response object generated
+by the symfony framework and takes care of the decoding part.
+
+BEFORE:
+```php
+use EnricoStahn\JsonAssert\Assert as JsonAssert;
+
+// ...
+
+$content = $response->getContent();
+$json = json_decode($content);
+JsonAssert::assertJsonMatchesSchemaString('./my-schema.json', $json);
+```
+
+AFTER:
+```php
+use EnricoStahn\JsonAssert\Assert\Extension\Symfony as JsonAssert;
+
+// ...
+
+JsonAssert::assertJsonMatchesSchemaString('./my-schema.json', $response);
 ```
 
 ## Tests
