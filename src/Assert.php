@@ -39,8 +39,10 @@ trait Assert
         $retriever = new UriRetriever();
         $schema = $retriever->retrieve('file://'.realpath($schema));
 
+        // Assume references are relative to the current file
+        // Create an issue or pull request if you need more complex use cases
         $refResolver = new RefResolver($retriever);
-        $refResolver->resolve($schema, 'file://'.__DIR__.'/../Resources/schemas/');
+        $refResolver->resolve($schema, $schema->id);
 
         $validator = new Validator();
         $validator->check($content, $schema);
