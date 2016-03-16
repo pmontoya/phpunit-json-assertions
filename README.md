@@ -130,6 +130,7 @@ To run the test suite, you need [composer](http://getcomposer.org).
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/estahn/phpunit-json-assertions/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/estahn/phpunit-json-assertions/?branch=master)
 [![Code Coverage](https://scrutinizer-ci.com/g/estahn/phpunit-json-assertions/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/estahn/phpunit-json-assertions/?branch=master)
 [![Codacy Badge](https://api.codacy.com/project/badge/grade/0bbc8fdeb4044287bbce009adc07ca39)](https://www.codacy.com/app/estahn/phpunit-json-assertions)
+[![Codacy Badge](https://api.codacy.com/project/badge/coverage/0bbc8fdeb4044287bbce009adc07ca39)](https://www.codacy.com/app/estahn/phpunit-json-assertions)
 
 ## License
 
