@@ -16,7 +16,7 @@ use JsonSchema\Uri\UriRetriever;
 use JsonSchema\Validator;
 
 /**
- * Asserts to validate JSON data
+ * Asserts to validate JSON data.
  *
  * - All assert methods expect deserialised JSON data (an actual object or array)
  *   since the deserialisation method should be up to the user.
@@ -25,7 +25,7 @@ use JsonSchema\Validator;
 trait Assert
 {
     /**
-     * Asserts that json content is valid according to the provided schema file
+     * Asserts that json content is valid according to the provided schema file.
      *
      * Example:
      *
@@ -37,10 +37,10 @@ trait Assert
     public static function assertJsonMatchesSchema($schema, $content)
     {
         $retriever = new UriRetriever();
-        $schema = $retriever->retrieve('file://' . realpath($schema));
+        $schema = $retriever->retrieve('file://'.realpath($schema));
 
         $refResolver = new RefResolver($retriever);
-        $refResolver->resolve($schema, 'file://' . __DIR__ . '/../Resources/schemas/');
+        $refResolver->resolve($schema, 'file://'.__DIR__.'/../Resources/schemas/');
 
         $validator = new Validator();
         $validator->check($content, $schema);
@@ -49,13 +49,13 @@ trait Assert
         $messages = array_map(function ($e) use ($message) {
             return sprintf($message, $e['property'], $e['constraint'], $e['message']);
         }, $validator->getErrors());
-        $messages[] = '- Response: ' . json_encode($content);
+        $messages[] = '- Response: '.json_encode($content);
 
         self::assertTrue($validator->isValid(), implode("\n", $messages));
     }
 
     /**
-     * Asserts that json content is valid according to the provided schema string
+     * Asserts that json content is valid according to the provided schema string.
      *
      * @param string       $schema  Schema data
      * @param array|object $content JSON content
@@ -69,7 +69,7 @@ trait Assert
     }
 
     /**
-     * Asserts if the value retrieved with the expression equals the expected value
+     * Asserts if the value retrieved with the expression equals the expected value.
      *
      * Example:
      *
@@ -90,6 +90,7 @@ trait Assert
     /**
      * @param $expression
      * @param $data
+     *
      * @return mixed|null
      */
     public static function search($expression, $data)
@@ -98,9 +99,10 @@ trait Assert
     }
 
     /**
-     * Helper method to deserialise a JSON string into an object
+     * Helper method to deserialise a JSON string into an object.
      *
      * @param mixed $data The JSON string
+     *
      * @return array|object
      */
     public static function getJsonObject($data)
