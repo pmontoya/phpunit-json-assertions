@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace EnricoStahn\JsonAssert\Integration;
+namespace EnricoStahn\JsonAssert\Extension;
 
 use EnricoStahn\JsonAssert\Assert;
 use Symfony\Component\HttpFoundation\Response;
