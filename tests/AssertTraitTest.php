@@ -56,6 +56,14 @@ class AssertTraitTest extends \PHPUnit_Framework_TestCase
         self::assertInstanceOf('PHPUnit_Framework_ExpectationFailedException', $exception);
     }
 
+    public function testAssertJsonMatchesSchemaString()
+    {
+        $content = json_decode('{"foo":123}');
+        $schema = file_get_contents(self::getSchema('test.schema.json'));
+
+        AssertTraitImpl::assertJsonMatchesSchemaString($schema, $content);
+    }
+
     /**
      * Tests assertJsonValueEquals().
      *
