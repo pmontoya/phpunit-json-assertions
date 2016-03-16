@@ -132,6 +132,9 @@ To run the test suite, you need [composer](http://getcomposer.org).
 [![Codacy Badge](https://api.codacy.com/project/badge/grade/0bbc8fdeb4044287bbce009adc07ca39)](https://www.codacy.com/app/estahn/phpunit-json-assertions)
 [![Codacy Badge](https://api.codacy.com/project/badge/coverage/0bbc8fdeb4044287bbce009adc07ca39)](https://www.codacy.com/app/estahn/phpunit-json-assertions)
 
+## Alternatives
+* https://github.com/martin-helmich/phpunit-json-assert - Doesn't support JSON Schema and uses [JSONPath](https://github.com/FlowCommunications/JSONPath) instead of [jmespath.php](https://github.com/jmespath/jmespath.php)
+
 ## License
 
 The phpunit-json-assertions library is licensed under the [MIT](LICENSE).
