@@ -46,8 +46,8 @@ trait Assert
         $validator->check($content, $schema);
 
         $message = '- Property: %s, Contraint: %s, Message: %s';
-        $messages = array_map(function ($e) use ($message) {
-            return sprintf($message, $e['property'], $e['constraint'], $e['message']);
+        $messages = array_map(function ($exception) use ($message) {
+            return sprintf($message, $exception['property'], $exception['constraint'], $exception['message']);
         }, $validator->getErrors());
         $messages[] = '- Response: '.json_encode($content);
 
@@ -76,7 +76,8 @@ trait Assert
      *     static::assertJsonValueEquals(33, 'foo.bar[0]', $json);
      *
      * @param mixed        $expected   Expected value
-     * @param string       $expression Expression to retrieve the result (e.g. locations[?state == 'WA'].name | sort(@) | {WashingtonCities: join(', ', @)})
+     * @param string       $expression Expression to retrieve the result
+     *                                 (e.g. locations[?state == 'WA'].name | sort(@))
      * @param array|object $json       JSON Content
      */
     public static function assertJsonValueEquals($expected, $expression, $json)
