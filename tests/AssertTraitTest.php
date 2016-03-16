@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of the phpunit-json-assertions package.
+ *
+ * (c) Enrico Stahn <enrico.stahn@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace EnricoStahn\JsonAssert\Tests;
 
 class AssertTraitTest extends \PHPUnit_Framework_TestCase
@@ -48,12 +57,12 @@ class AssertTraitTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Tests assertJsonValueEquals()
+     * Tests assertJsonValueEquals().
      *
      * @dataProvider assertJsonValueEqualsProvider
      *
      * @param string $expression
-     * @param mixed $value
+     * @param mixed  $value
      */
     public function testAssertJsonValueEquals($expression, $value)
     {
@@ -66,7 +75,7 @@ class AssertTraitTest extends \PHPUnit_Framework_TestCase
     {
         return [
             ['foo', '123'],
-            ['a.b.c[0].d[1][0]', 1]
+            ['a.b.c[0].d[1][0]', 1],
         ];
     }
 
@@ -94,8 +103,7 @@ class AssertTraitTest extends \PHPUnit_Framework_TestCase
             [[], []],
             [[], '[]'],
             [new \stdClass(), new \stdClass()],
-            [new \stdClass(), '{}']
+            [new \stdClass(), '{}'],
         ];
     }
-
 }
