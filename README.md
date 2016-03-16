@@ -20,11 +20,13 @@ JSON assertions for PHPUnit includes traits/methods to help validate your JSON d
     
 or in your `composer.json`:
 
-    {
-        "require-dev": {
-            "estahn/phpunit-json-assertions": "@stable"
-        }
+```json
+{
+    "require-dev": {
+        "estahn/phpunit-json-assertions": "@stable"
     }
+}
+```
 
 ## Asserts
 
@@ -40,70 +42,74 @@ You can either use the `trait` or `class` version.
 
 ### Trait
 
-    <?php
+```php
+<?php
+
+namespace EnricoStahn\JsonAssert\Tests;
+
+use EnricoStahn\JsonAssert\Assert as JsonAssert;
+
+class MyTestCase extends \PHPUnit_Framework_TestCase
+{
+    use JsonAssert;
     
-    namespace EnricoStahn\JsonAssert\Tests;
-    
-    use EnricoStahn\JsonAssert\Assert as JsonAssert;
-    
-    class MyTestCase extends \PHPUnit_Framework_TestCase
+    public function testJsonDocumentIsValid()
     {
-        use JsonAssert;
+        // my-schema.json
+        //
+        // {
+        //   "type" : "object",
+        //   "properties" : {
+        //     "foo" : {
+        //       "type" : "integer"
+        //     }
+        //   },
+        //   "required" : [ "foo" ]
+        // }
+    
+        $json = json_decode('{"foo":1}');
         
-        public function testJsonDocumentIsValid()
-        {
-            // my-schema.json
-            //
-            // {
-            //   "type" : "object",
-            //   "properties" : {
-            //     "foo" : {
-            //       "type" : "integer"
-            //     }
-            //   },
-            //   "required" : [ "foo" ]
-            // }
-        
-            $json = json_decode('{"foo":1}');
-            
-            $this->assertJsonMatchesSchemaString('./my-schema.json', $json);
-            $this->assertJsonValueEquals(1, '* | [0]', $json);
-        }
+        $this->assertJsonMatchesSchemaString('./my-schema.json', $json);
+        $this->assertJsonValueEquals(1, '* | [0]', $json);
     }
+}
+```
 
 ### Class
 
 In case you don't want to use the `trait` you can use the provided class wich extends from `\PHPUnit_Framework_TestCase`.
 You can either extend your test case or use the static methods like below.
 
-    <?php
-    
-    namespace EnricoStahn\JsonAssert\Tests;
-    
-    use EnricoStahn\JsonAssert\AssertClass as JsonAssert;
-    
-    class MyTestCase extends \PHPUnit_Framework_TestCase
+```php
+<?php
+
+namespace EnricoStahn\JsonAssert\Tests;
+
+use EnricoStahn\JsonAssert\AssertClass as JsonAssert;
+
+class MyTestCase extends \PHPUnit_Framework_TestCase
+{
+    public function testJsonDocumentIsValid()
     {
-        public function testJsonDocumentIsValid()
-        {
-            // my-schema.json
-            //
-            // {
-            //   "type" : "object",
-            //   "properties" : {
-            //     "foo" : {
-            //       "type" : "integer"
-            //     }
-            //   },
-            //   "required" : [ "foo" ]
-            // }
+        // my-schema.json
+        //
+        // {
+        //   "type" : "object",
+        //   "properties" : {
+        //     "foo" : {
+        //       "type" : "integer"
+        //     }
+        //   },
+        //   "required" : [ "foo" ]
+        // }
+    
+        $json = json_decode('{"foo":1}');
         
-            $json = json_decode('{"foo":1}');
-            
-            JsonAssert::assertJsonMatchesSchemaString('./my-schema.json', $json);
-            JsonAssert::assertJsonValueEquals(1, '* | [0]', $json);
-        }
+        JsonAssert::assertJsonMatchesSchemaString('./my-schema.json', $json);
+        JsonAssert::assertJsonValueEquals(1, '* | [0]', $json);
     }
+}
+```
 
 ## Tests
 
