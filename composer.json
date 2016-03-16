@@ -1,0 +1,33 @@
+{
+    "name": "estahn/phpunit-json-assertions",
+    "type": "library",
+    "description": "JSON assertions for PHPUnit (including JSON Schema)",
+    "keywords": ["json", "phpunit", "schema"],
+    "homepage": "https://github.com/estahn/phpunit-json-assertions",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Enrico Stahn",
+            "email": "enrico.stahn@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5.4.0",
+        "justinrainbow/json-schema": "^1.6",
+        "mtdowling/jmespath.php": "^2.3"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^5.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "EnricoStahn\\JsonAssert\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "EnricoStahn\\JsonAssert\\Tests\\": "tests/"
+        }
+    }
+}
