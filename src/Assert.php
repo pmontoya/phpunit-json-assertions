@@ -81,21 +81,10 @@ trait Assert
      */
     public static function assertJsonValueEquals($expected, $expression, $json)
     {
-        $result = self::search($expression, $json);
+        $result = \JmesPath\Env::search($expression, $json);
 
         self::assertEquals($expected, $result);
         self::assertInternalType(gettype($expected), $result);
-    }
-
-    /**
-     * @param $expression
-     * @param $data
-     *
-     * @return mixed|null
-     */
-    public static function search($expression, $data)
-    {
-        return \JmesPath\Env::search($expression, $data);
     }
 
     /**
