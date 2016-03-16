@@ -1,5 +1,12 @@
 # phpunit-json-assertions
 
+[![Latest Stable Version](https://poser.pugx.org/estahn/phpunit-json-assertions/version.png)](https://packagist.org/packages/estahn/phpunit-json-assertions)
+[![Total Downloads](https://poser.pugx.org/estahn/phpunit-json-assertions/d/total.png)](https://packagist.org/packages/estahn/phpunit-json-assertions)
+[![Dependency Status](https://www.versioneye.com/user/projects/56e8f6404e714c0035e760f3/badge.svg?style=flat)](https://www.versioneye.com/user/projects/56e8f6404e714c0035e760f3)
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/581c093b-833a-49c2-a05c-d99aaf8f39c2/mini.png)](https://insight.sensiolabs.com/projects/581c093b-833a-49c2-a05c-d99aaf8f39c2)
+[![Build Status](https://travis-ci.org/estahn/phpunit-json-assertions.png?branch=master)](https://travis-ci.org/estahn/phpunit-json-assertions)
+[![StyleCI](https://styleci.io/repos/53177096/shield)](https://styleci.io/repos/53177096)
+
 JSON assertions for PHPUnit includes traits/methods to help validate your JSON data through various methods.
 
 ## Features
@@ -117,6 +124,12 @@ To run the test suite, you need [composer](http://getcomposer.org).
 
     $ composer install
     $ bin/phpunit
+
+## Badge Mania
+[![Build Status](https://scrutinizer-ci.com/g/estahn/phpunit-json-assertions/badges/build.png?b=master)](https://scrutinizer-ci.com/g/estahn/phpunit-json-assertions/build-status/master)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/estahn/phpunit-json-assertions/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/estahn/phpunit-json-assertions/?branch=master)
+[![Code Coverage](https://scrutinizer-ci.com/g/estahn/phpunit-json-assertions/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/estahn/phpunit-json-assertions/?branch=master)
+[![Codacy Badge](https://api.codacy.com/project/badge/grade/0bbc8fdeb4044287bbce009adc07ca39)](https://www.codacy.com/app/estahn/phpunit-json-assertions)
 
 ## License
 
