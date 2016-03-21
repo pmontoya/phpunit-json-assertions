@@ -37,11 +37,13 @@ or in your `composer.json`:
 
 ## Asserts
 
-| Assert                        | Description                                                                  |
-| ----------------------------- | ---------------------------------------------------------------------------- |
-| assertJsonMatchesSchema       | Asserts that json content is valid according to the provided schema file     |
-| assertJsonMatchesSchemaString | Asserts that json content is valid according to the provided schema string   |
-| assertJsonValueEquals         | Asserts if the value retrieved with the expression equals the expected value |
+| Assert                        | Description                                                                  | Available in |
+| ----------------------------- | ---------------------------------------------------------------------------- | ------------ |
+| [assertJsonMatchesSchema](https://github.com/estahn/phpunit-json-assertions/wiki/assertJsonMatchesSchema)       | Asserts that json content is valid according to the provided schema file     | All |
+| assertJsonMatchesSchemaString | Asserts that json content is valid according to the provided schema string   | All |
+| assertJsonValueEquals         | Asserts if the value retrieved with the expression equals the expected value | All |
+| assertJsonValueEquals         | Asserts if the value retrieved with the expression equals the expected value | All |
+| assertJsonResponse            | Asserts that a response is successful and of type json | Symfony |
 
 ## Usage
 
