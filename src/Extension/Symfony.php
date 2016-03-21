@@ -60,7 +60,7 @@ trait Symfony
     }
 
     /**
-     * Asserts that a response is successful and of type json
+     * Asserts that a response is successful and of type json.
      *
      * @param Response $response   Response object
      * @param int      $statusCode Expected status code (default 200)

@@ -14,7 +14,7 @@ namespace EnricoStahn\JsonAssert\Tests;
 class AssertTraitTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * Showcase for the Wiki
+     * Showcase for the Wiki.
      *
      * @see https://github.com/estahn/phpunit-json-assertions/wiki/assertJsonMatchesSchema
      */
