@@ -39,4 +39,11 @@ class SymfonyTest extends \PHPUnit_Framework_TestCase
 
         Symfony::assertJsonValueEquals(123, 'foo', $response);
     }
+
+    public function testAssertJsonResponse()
+    {
+        $response = new Response('{}', 200, ['Content-Type' => 'application/json']);
+        
+        Symfony::assertJsonResponse($response);
+    }
 }
