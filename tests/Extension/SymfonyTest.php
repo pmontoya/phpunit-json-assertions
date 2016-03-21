@@ -43,7 +43,7 @@ class SymfonyTest extends \PHPUnit_Framework_TestCase
     public function testAssertJsonResponse()
     {
         $response = new Response('{}', 200, ['Content-Type' => 'application/json']);
-        
+
         Symfony::assertJsonResponse($response);
     }
 }
