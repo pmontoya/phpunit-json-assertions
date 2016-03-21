@@ -13,6 +13,18 @@ namespace EnricoStahn\JsonAssert\Tests;
 
 class AssertTraitTest extends \PHPUnit_Framework_TestCase
 {
+    /**
+     * Showcase for the Wiki
+     *
+     * @see https://github.com/estahn/phpunit-json-assertions/wiki/assertJsonMatchesSchema
+     */
+    public function testAssertJsonMatchesSchemaSimple()
+    {
+        $content = json_decode(file_get_contents(Utils::getJsonPath('assertJsonMatchesSchema_simple.json')));
+
+        AssertTraitImpl::assertJsonMatchesSchema(Utils::getSchemaPath('assertJsonMatchesSchema_simple.schema.json'), $content);
+    }
+
     public function testAssertJsonMatchesSchema()
     {
         $content = json_decode('{"foo":123}');
