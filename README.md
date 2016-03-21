@@ -39,7 +39,7 @@ or in your `composer.json`:
 
 | Assert                        | Description                                                                  | Available in |
 | ----------------------------- | ---------------------------------------------------------------------------- | ------------ |
-| assertJsonMatchesSchema       | Asserts that json content is valid according to the provided schema file     | All |
+| [assertJsonMatchesSchema](https://github.com/estahn/phpunit-json-assertions/wiki/assertJsonMatchesSchema)       | Asserts that json content is valid according to the provided schema file     | All |
 | assertJsonMatchesSchemaString | Asserts that json content is valid according to the provided schema string   | All |
 | assertJsonValueEquals         | Asserts if the value retrieved with the expression equals the expected value | All |
 | assertJsonValueEquals         | Asserts if the value retrieved with the expression equals the expected value | All |
