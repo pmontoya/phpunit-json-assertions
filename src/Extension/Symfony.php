@@ -58,4 +58,25 @@ trait Symfony
     {
         Assert::assertJsonValueEquals($expected, $expression, json_decode($response->getContent()));
     }
+
+    /**
+     * Asserts that a response is successful and of type json
+     *
+     * @param Response $response   Response object
+     * @param int      $statusCode Expected status code (default 200)
+     *
+     * @see \Bazinga\Bundle\RestExtraBundle\Test\WebTestCase::assertJsonResponse()
+     */
+    public static function assertJsonResponse(Response $response, $statusCode = 200)
+    {
+        \PHPUnit_Framework_Assert::assertEquals(
+            $statusCode,
+            $response->getStatusCode(),
+            $response->getContent()
+        );
+        \PHPUnit_Framework_Assert::assertTrue(
+            $response->headers->contains('Content-Type', 'application/json'),
+            $response->headers
+        );
+    }
 }
