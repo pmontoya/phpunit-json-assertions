@@ -142,7 +142,7 @@ JsonAssert::assertJsonMatchesSchemaString('./my-schema.json', $json);
 
 AFTER:
 ```php
-use EnricoStahn\JsonAssert\Assert\Extension\Symfony as JsonAssert;
+use EnricoStahn\JsonAssert\Extension\Symfony as JsonAssert;
 
 // ...
 
