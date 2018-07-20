@@ -2,10 +2,11 @@
 
 [![Latest Stable Version](https://poser.pugx.org/estahn/phpunit-json-assertions/version.png)](https://packagist.org/packages/estahn/phpunit-json-assertions)
 [![Total Downloads](https://poser.pugx.org/estahn/phpunit-json-assertions/d/total.png)](https://packagist.org/packages/estahn/phpunit-json-assertions)
-[![Dependency Status](https://www.versioneye.com/user/projects/56e8f6404e714c0035e760f3/badge.svg?style=flat)](https://www.versioneye.com/user/projects/56e8f6404e714c0035e760f3)
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/581c093b-833a-49c2-a05c-d99aaf8f39c2/mini.png)](https://insight.sensiolabs.com/projects/581c093b-833a-49c2-a05c-d99aaf8f39c2)
 [![Build Status](https://travis-ci.org/estahn/phpunit-json-assertions.png?branch=master)](https://travis-ci.org/estahn/phpunit-json-assertions)
 [![StyleCI](https://styleci.io/repos/53177096/shield)](https://styleci.io/repos/53177096)
+[![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/estahn/phpunit-json-assertions.svg)](http://isitmaintained.com/project/estahn/phpunit-json-assertions "Average time to resolve an issue")
+[![Percentage of issues still open](http://isitmaintained.com/badge/open/estahn/phpunit-json-assertions.svg)](http://isitmaintained.com/project/estahn/phpunit-json-assertions "Percentage of issues still open")
 
 JSON assertions for PHPUnit includes traits/methods to help validate your JSON data through various methods.
 
@@ -24,7 +25,7 @@ JSON assertions for PHPUnit includes traits/methods to help validate your JSON d
 ## Install
 
     $ composer require estahn/phpunit-json-assertions --dev
-    
+
 or in your `composer.json`:
 
 ```json
@@ -57,12 +58,11 @@ You can either use the `trait` or `class` version.
 namespace EnricoStahn\JsonAssert\Tests;
 
 use EnricoStahn\JsonAssert\Assert as JsonAssert;
-use PHPUnit\Framework\TestCase;
 
-class MyTestCase extends TestCase
+class MyTestCase extends \PHPUnit_Framework_TestCase
 {
     use JsonAssert;
-    
+
     public function testJsonDocumentIsValid()
     {
         // my-schema.json
@@ -76,9 +76,9 @@ class MyTestCase extends TestCase
         //   },
         //   "required" : [ "foo" ]
         // }
-    
+
         $json = json_decode('{"foo":1}');
-        
+
         $this->assertJsonMatchesSchema('./my-schema.json', $json);
         $this->assertJsonValueEquals(1, '* | [0]', $json);
     }
@@ -87,7 +87,7 @@ class MyTestCase extends TestCase
 
 ### Class
 
-In case you don't want to use the `trait` you can use the provided class wich extends from `PHPUnit\Framework\TestCase`.
+In case you don't want to use the `trait` you can use the provided class wich extends from `\PHPUnit_Framework_TestCase`.
 You can either extend your test case or use the static methods like below.
 
 ```php
@@ -96,9 +96,8 @@ You can either extend your test case or use the static methods like below.
 namespace EnricoStahn\JsonAssert\Tests;
 
 use EnricoStahn\JsonAssert\AssertClass as JsonAssert;
-use PHPUnit\Framework\TestCase;
 
-class MyTestCase extends TestCase
+class MyTestCase extends \PHPUnit_Framework_TestCase
 {
     public function testJsonDocumentIsValid()
     {
@@ -113,9 +112,9 @@ class MyTestCase extends TestCase
         //   },
         //   "required" : [ "foo" ]
         // }
-    
+
         $json = json_decode('{"foo":1}');
-        
+
         JsonAssert::assertJsonMatchesSchema('./my-schema.json', $json);
         JsonAssert::assertJsonValueEquals(1, '* | [0]', $json);
     }
