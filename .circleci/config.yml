@@ -35,6 +35,14 @@ jobs:
             - vendor
       - run: ./vendor/bin/phpunit --coverage-text
 
+  release-dry-run:
+    docker:
+      - image: circleci/node:9
+    steps:
+      - checkout
+      - run: yarn global add --prefer-offline --no-progress --non-interactive "semantic-release@15.5.0" "@semantic-release/exec@2.2.4"
+      - run: $(yarn global bin)/semantic-release --dry-run
+
   release:
     docker:
       - image: circleci/node:9
@@ -49,6 +57,7 @@ workflows:
     jobs:
       - test-7.1
       - test-7.2
+      - release-dry-run
       - hold:
           type: approval
           requires:
