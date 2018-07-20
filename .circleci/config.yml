@@ -57,7 +57,8 @@ workflows:
     jobs:
       - test-7.1
       - test-7.2
-      - release-dry-run
+      - release-dry-run:
+          context: org-global        
       - hold:
           type: approval
           requires:
