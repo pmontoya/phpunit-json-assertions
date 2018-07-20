@@ -33,7 +33,18 @@ jobs:
           key: composer-v1-{{ checksum "composer.lock" }}
           paths:
             - vendor
-      - run: ./vendor/bin/phpunit --coverage-text
+      - run:
+          name: Setup Code Climate test-reporter
+          command: |
+            curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+            chmod +x ./cc-test-reporter
+      - run:
+          name: Run tests
+          command: |
+            sudo docker-php-ext-enable xdebug
+            ./cc-test-reporter before-build
+            vendor/bin/phpunit --coverage-clover clover.xml
+            ./cc-test-reporter after-build --coverage-input-type clover --exit-code $?
 
   release-dry-run:
     docker:
@@ -58,7 +69,7 @@ workflows:
       - test-7.1
       - test-7.2
       - release-dry-run:
-          context: org-global        
+          context: org-global
       - hold:
           type: approval
           requires:
