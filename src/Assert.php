@@ -117,7 +117,34 @@ trait Assert
         $result = \JmesPath\Env::search($expression, $json);
 
         \PHPUnit\Framework\Assert::assertEquals($expected, $result);
-        \PHPUnit\Framework\Assert::assertInternalType(strtolower(gettype($expected)), $result);
+        $method = null;
+        switch (strtolower(gettype($expected))) {
+            case 'boolean': 
+                $method = 'assertIsBool';
+                break;
+            case 'integer': 
+                $method = 'assertIsInt';
+                break;
+            case 'double': 
+                $method = 'assertIsNumeric';
+                break;
+            case 'string':
+                $method = 'assertIsString';
+                break;
+            case 'array':
+                $method = 'assertIsArray';
+                break;
+            case 'object':
+                $method = 'assertIsObject';
+                break;
+        }
+
+        if (null === $method) {
+            throw new \InvalidArgumentException(sprintf('Unknown type for expected arguement %s', $gettype($expected)));
+        }
+
+
+        \PHPUnit\Framework\Assert::$method($result);
     }
 
     /**
